@@ -1,0 +1,36 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+NC='\033[0m'
+BBlue='\033[1;34m'  # Azul brilhante
+BRed='\033[1;31m'  # Vermelho brilhante
+
+BRANCH_NAME=$(git symbolic-ref --short HEAD)
+
+echo "Verificando o nome da branch..."
+if [ "$BRANCH_NAME" = "main" ]; then
+    printf "%b\n" "${BRed}Não é permitido commitar diretamente na branch '$BRANCH_NAME'.${NC}"
+    exit 1
+fi
+
+REGEX_ISSUE_ID="[a-zA-Z0-9_\-]+-[0-9]+"
+ISSUE_ID=$(echo "$BRANCH_NAME" | grep -o -E "$REGEX_ISSUE_ID")
+
+if [ ! -f "$1" ] || [ ! -r "$1" ]; then
+    printf "%b\n" "${BRed}Arquivo de mensagem de commit não encontrado ou não é legível.${NC}"
+    exit 1
+fi
+
+COMMIT_MESSAGE=$(cat "$1")
+
+echo "Verificando o padrão do nome da branch... ISSUE_ID: $ISSUE_ID"
+if [ -z "$ISSUE_ID" ]; then
+    printf "%b\n" "${BRed}Branch não está no padrão que deveria... ${NC}"
+    exit 1
+fi
+
+if expr "$COMMIT_MESSAGE" : "$ISSUE_ID" > /dev/null; then
+    exit 0
+fi
+
+printf "%b\n" "${BBlue}$ISSUE_ID: $COMMIT_MESSAGE" >"$1"
