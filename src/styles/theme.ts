@@ -27,14 +27,14 @@ export default {
     secondary: '#3CD3C1',
     white: '#FAFAFA',
     black: '#2b2b2b',
-    xBlack: '#313131',
-    xxBlack: '#343434',
-    brownishGray: '#5f5f5f',
-    warmGray: '#7a7a7a',
-    xWarmGray: '#9f9f9f',
+    xblack: '#313131',
+    xxblack: '#343434',
+    brownishgray: '#5f5f5f',
+    warmgray: '#7a7a7a',
+    xwarmgray: '#9f9f9f',
     gray: '#494949',
-    grayishBrown: '#3b3b3b',
-    xGrayishBrown: '#4b4b4b'
+    grayishbrown: '#3b3b3b',
+    xgrayishbrown: '#4b4b4b'
   },
   spacings: {
     xxxsmall: '0.8rem',
