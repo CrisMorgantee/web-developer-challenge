@@ -1,11 +1,12 @@
 import { ThemeProvider } from 'styled-components'
 import theme from './styles/theme'
 import GlobalStyles from './styles/global'
+import Header from './components/Header'
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <h1>Hello World</h1>
+      <Header />
       <GlobalStyles />
     </ThemeProvider>
   )
