@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 
-export const Wrapper = styled.main`
+export const Wrapper = styled.header`
   ${({ theme }) => css`
     background-color: ${theme.colors.black};
   `}
