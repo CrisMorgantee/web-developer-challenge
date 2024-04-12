@@ -26,9 +26,6 @@ const Card = ({ title, postBy }: CardProps) => {
           <span>Enviado por</span>
           <h5>{postBy}</h5>
         </S.PostByWrapper>
-
-        <Button minimal>Descartar</Button>
-        <Button>Publicar</Button>
       </S.Content>
     </S.Wrapper>
   )
