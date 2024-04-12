@@ -10,6 +10,7 @@ export const Wrapper = styled.article`
     border-radius: 0.3rem;
     border: solid 0.1rem ${theme.colors.grayishbrown};
     background-color: ${theme.colors.xblack};
+    position: relative;
 
     & > * + * {
       margin-left: ${theme.spacings.medium};
@@ -32,6 +33,23 @@ export const ImgWrapper = styled.div`
     height: 8.8rem;
     border-radius: 4.4rem;
     background-color: ${theme.colors.xblack};
+  `}
+`
+
+export const CloseIcon = styled.div`
+  ${({ theme }) => css`
+    position: absolute;
+    top: 1.2rem;
+    right: 1.2rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: ${theme.border.radius};
+    cursor: pointer;
+
+    > img {
+      width: 2rem;
+      height: 2rem;
+    }
   `}
 `
 
