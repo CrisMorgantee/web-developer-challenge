@@ -27,7 +27,6 @@ const Button = ({
     size={size}
     fullWidth={fullWidth}
     onlyIcon={onlyIcon}
-    hasIcon={!!icon}
     minimal={minimal}
     {...props}
   >
