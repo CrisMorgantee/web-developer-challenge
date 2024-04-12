@@ -2,7 +2,7 @@ import { darken } from 'polished'
 import styled, { css, DefaultTheme } from 'styled-components'
 import { ButtonProps } from '.'
 
-export type WrapperProps = { hasIcon: boolean } & Pick<
+export type WrapperProps = Pick<
   ButtonProps,
   'size' | 'fullWidth' | 'onlyIcon' | 'minimal'
 >
@@ -49,6 +49,8 @@ const wrapperModifiers = {
   minimal: (theme: DefaultTheme) => css`
     background: none;
     color: ${theme.colors.brownishgray};
+    padding: 0;
+    width: fit-content;
     text-decoration: underline;
     transition: color 200ms ease-in-out;
 
@@ -64,7 +66,6 @@ export const Wrapper = styled.button<WrapperProps>`
     align-items: center;
     justify-content: center;
     border-radius: ${theme.border.radius};
-    padding: 0 calc(${theme.spacings.xxxlarge} * 2);
     color: ${theme.colors.white};
     text-decoration: none;
     font-size: ${theme.font.sizes.medium};
